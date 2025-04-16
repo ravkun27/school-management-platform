@@ -1,0 +1,66 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode */
+    --color-primary: 59 130 246; /* Blue */
+    --color-secondary: 71 85 105; /* Grayish Blue */
+    --color-accent: 236 72 153; /* Pink */
+
+    --color-text: 30 41 59; /* Dark Blue for text */
+    --color-background: 248 250 252; /* Light Gray Background */
+  }
+
+  .dark {
+    /* Dark Mode */
+    --color-primary: 99 102 241; /* Indigo */
+    --color-secondary: 203 213 225; /* Light Gray */
+    --color-accent: 219 39 119; /* Darker Pink */
+
+    --color-text: 241 245 249; /* Almost White for text */
+    --color-background: 15 23 42; /* Dark Navy Blue Background */
+  }
+}
+
+:root {
+  --color-success: 34 197 94;
+  --color-error: 239 68 68;
+}
+
+.dark {
+  --color-success: 20 83 45;
+  --color-error: 185 28 28;
+}
+/* Custom scrollbar */
+@layer utilities {
+  .scrollbar-primary::-webkit-scrollbar-thumb {
+    @apply bg-primary-500 hover:bg-primary-600 dark:bg-primary-700 dark:hover:bg-primary-800;
+  }
+}
+
+/* Remove default arrow for all select elements */
+select {
+  background-image: none; /* Remove default arrow */
+}
+
+/* Ensure the custom dropdown looks consistent across browsers */
+select::-ms-expand {
+  display: none; /* Remove default arrow in IE */
+}
+
+/* Add this to your global CSS file */
+.Toastify__toast {
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+}
+
+.Toastify__toast--success {
+  background: #10b981;
+}
+
+.Toastify__toast--error {
+  background: #ef4444;
+}
