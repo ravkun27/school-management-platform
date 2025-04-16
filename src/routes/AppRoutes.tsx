@@ -7,6 +7,11 @@ import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import { ErrorBoundary } from "react-error-boundary";
 import TeacherDashboard from "../pages/TeacherDashboard";
+import LandingPage from "../pages/LandingPage";
+import AdminSignIn from "../pages/AdminSignIn";
+import AdminSignUp from "../pages/AdminSignUp";
+import AdminDashboard from "../pages/AdminDashboard";
+import Teachers from "../pages/Teachers";
 // import { useAppSelector } from "../store/store";
 
 // ErrorFallback Component to display in case of error
@@ -45,9 +50,28 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
+        index: true, // this makes it render on "/"
+        element: <LandingPage />,
+      },
+      {
+        path: "home",
+        element: <LandingPage />,
+      },
+      {
+        path: "admin-dashboard",
+        element: <AdminDashboard />,
+      },
+      {
         path: "students",
         element: (
           <Students />
+          // <PrivateRoute element={<Students />} allowedRoles={["student"]} />
+        ),
+      },
+      {
+        path: "teachers",
+        element: (
+          <Teachers />
           // <PrivateRoute element={<Students />} allowedRoles={["student"]} />
         ),
       },
@@ -70,6 +94,8 @@ const router = createBrowserRouter([
     path: "/auth",
     element: <AuthLayout />,
     children: [
+      { path: "admin/sign-in", element: <AdminSignIn /> },
+      { path: "admin/sign-up", element: <AdminSignUp /> },
       { path: "sign-in", element: <SignIn /> },
       { path: "sign-up", element: <SignUp /> },
     ],

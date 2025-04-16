@@ -1,7 +1,7 @@
 import { cn } from "../utils/helper";
-import { Video, FileText, Trash2, Edit } from "lucide-react";
+import { Trash2, Edit } from "lucide-react";
 import Button from "./ui/Button";
-import { useAppSelector } from "../store/store";
+// import { useAppSelector } from "../store/store";
 
 interface ContentCardProps {
   title: string;
@@ -22,8 +22,8 @@ const ContentCard = ({
   onEdit,
   onDelete,
 }: ContentCardProps) => {
-  const { user } = useAppSelector((state) => state.auth);
-  const canEdit = user?.role === "teacher" || user?.role === "admin";
+  // const { user } = useAppSelector((state) => state.auth);
+  // const canEdit = user?.role === "teacher" || user?.role === "admin";
   return (
     <div
       className={cn(
@@ -52,28 +52,28 @@ const ContentCard = ({
           {description}
         </p>
 
-        {canEdit && (
-          <div className="mt-3 flex gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={onEdit}
-              className="text-primary"
-            >
-              <Edit size={16} className="mr-1" />
-              Edit
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={onDelete}
-              className="text-red-500"
-            >
-              <Trash2 size={16} className="mr-1" />
-              Delete
-            </Button>
-          </div>
-        )}
+        {/* {canEdit && ( */}
+        <div className="mt-3 flex gap-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onEdit}
+            className="text-primary"
+          >
+            <Edit size={16} className="mr-1" />
+            Edit
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onDelete}
+            className="text-red-500"
+          >
+            <Trash2 size={16} className="mr-1" />
+            Delete
+          </Button>
+        </div>
+        {/* )} */}
       </div>
     </div>
   );
